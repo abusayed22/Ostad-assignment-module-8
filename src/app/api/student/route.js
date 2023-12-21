@@ -9,7 +9,6 @@ export async function POST(req,res) {
         const prisma = new PrismaClient();
         // request data
         const reqData = await req.json();
-        console.log(reqData)
 
         const res = await prisma.users.create({
             data: reqData
@@ -17,7 +16,6 @@ export async function POST(req,res) {
 
         return NextResponse.json({status:'Success',data: res})
     } catch (e) {
-        console.log(e)
         return NextResponse.json({status:'Faild!',message: e})
     }
 }
